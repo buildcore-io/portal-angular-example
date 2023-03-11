@@ -1,4 +1,4 @@
-<mat-card class="product-card" [routerLink]="'product/' + nft?.uid">
+<mat-card class="product-card" (click)="goToSoonaverseNft()">
   <mat-card-title
     >{{ nft?.name }} (price:
     {{ nft?.price | unitFormat : nft?.mintingData?.network }})</mat-card-title

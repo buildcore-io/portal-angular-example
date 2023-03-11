@@ -19,4 +19,8 @@ export class ProductComponent {
 
     return this.getUrl(org, FILE_SIZES.medium);
   }
+
+  public goToSoonaverseNft(): void {
+    window.open('https://soonaverse.com/nft/' + this.nft?.uid);
+  }
 }
