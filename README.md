@@ -1,7 +1,7 @@
 # Soonaverse collection galery example
 Let's have some fun store. This is heavily in progress.
 
-See example: [here](https://soonaverse.github.io/soon-portal-angular/) 
+See LIVE example: [here](https://soonaverse.github.io/soon-portal-angular/) 
 
 ## Angular setup
 
