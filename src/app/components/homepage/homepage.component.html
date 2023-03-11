@@ -1,0 +1,10 @@
+<div class="header" fxLayout="column" fxLayoutAlign="center center">
+  <h1 class="jumbo">
+    {{ (collection$ | async)?.name }} (floor price:
+    {{
+      (collection$ | async)?.floorPrice | unitFormat : (collection$ | async)?.mintingData?.network
+    }})
+  </h1>
+  <h2>{{ (collection$ | async)?.description }}</h2>
+</div>
+<app-products></app-products>

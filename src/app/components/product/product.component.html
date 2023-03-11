@@ -1,0 +1,8 @@
+<mat-card class="product-card" [routerLink]="'product/' + nft?.uid">
+  <mat-card-title
+    >{{ nft?.name }} (price:
+    {{ nft?.price | unitFormat : nft?.mintingData?.network }})</mat-card-title
+  >
+  {{ nft?.description }}
+  <img mat-card-image [src]="medSizeImg(nft?.media)" />
+</mat-card>
