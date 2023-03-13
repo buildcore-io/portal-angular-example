@@ -1,3 +1,18 @@
-<ul fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center">
-  <app-product *ngFor="let p of products$ | async | slice : 0 : 3" [nft]="p"></app-product>
-</ul>
+<div
+  class="min-h-screen bg-gradient-to-tr from-red-300 to-yellow-200 flex justify-center items-center py-20"
+>
+  <div class="md:px-4 md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-4 md:space-y-0">
+    <div class="flex items-center justify-center" *ngIf="(products$ | async) === undefined">
+      <div
+        class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+        role="status"
+      >
+        <span
+          class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+          >Loading...</span
+        >
+      </div>
+    </div>
+    <app-product *ngFor="let p of products$ | async" [nft]="p"></app-product>
+  </div>
+</div>

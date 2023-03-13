@@ -1,8 +1,63 @@
-<mat-card class="product-card" (click)="goToSoonaverseNft()">
-  <mat-card-title
-    >{{ nft?.name }} (price:
-    {{ nft?.price | unitFormat : nft?.mintingData?.network }})</mat-card-title
-  >
-  {{ nft?.description }}
-  <img mat-card-image [src]="medSizeImg(nft?.media)" />
-</mat-card>
+<div
+  class="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500"
+>
+  <h3 class="mb-3 text-xl font-bold text-indigo-600">{{ nft?.name }}</h3>
+  <div class="relative">
+    <img class="w-full rounded-xl" [src]="medSizeImg(nft?.media)" alt="Colors" />
+    <p
+      class="absolute top-0 bg-yellow-300 text-gray-800 font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg"
+    >
+      {{ nft?.availablePrice | unitFormat : nft?.mintingData?.network }}
+    </p>
+  </div>
+  <h1 class="mt-4 text-gray-800 text-sm font-bold cursor-pointer">{{ nft?.description }}</h1>
+  <div class="my-4">
+    <div class="flex space-x-1 items-center">
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-indigo-600 mb-1.5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+      </span>
+      <p>
+        {{ nft?.totalTrades }} <span *ngIf="nft?.totalTrades === 1">trade</span
+        ><span *ngIf="(nft?.totalTrades || 0) > 1">trades</span>
+      </p>
+    </div>
+    <!-- <div class="flex space-x-1 items-center">
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-indigo-600 mb-1.5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+          />
+        </svg>
+      </span>
+      <p>Vanilla</p>
+    </div> -->
+    <button
+      class="mt-4 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg"
+      (click)="goToSoonaverseNft()"
+    >
+      Buy Now
+    </button>
+  </div>
+</div>
