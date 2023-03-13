@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  collection: '0x5427acc3b31ee211caffb35ddd276c75ceff82ef',
+  mode: 'sale', // sale | auction
+  collection: '0xcbe28532602d67eec7c937c0037509d426f38223',
 };
