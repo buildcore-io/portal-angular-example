@@ -1,7 +1,7 @@
-# Soonaverse collection galery example
+# Build5 collection galery example
 Let's have some fun store. This is heavily in progress.
 
-See LIVE example: [here](https://soonaverse.github.io/soon-portal-angular/) 
+See LIVE example: [here](https://build-5.github.io/portal-angular-example/) 
 
 ## Angular setup
 
@@ -32,8 +32,8 @@ For help with our styling, we will use the angular material components. These co
 
 # 🤝 Contributing
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/soonaverse/soonaverse/pulls)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/build-5/core/pulls)
 
-We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/soonaverse/soonaverse/blob/master/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/soonaverse/soonaverse/pulls) or as [GitHub issues](https://github.com/soonaverse/soonaverse/issues).
+We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/build-5/core/blob/master/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/build-5/core/pulls) or as [GitHub issues](https://github.com/build-5/core/issues).
 
 Thank you for supporting us free open source licenses.
