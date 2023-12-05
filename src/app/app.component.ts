@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { https } from '@build-5/client';
+import { Build5 } from '@build-5/client/lib/https';
 import { Collection } from '@build-5/interfaces';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject } from 'rxjs';
@@ -16,6 +18,7 @@ export class AppComponent {
   constructor(private collectionService: CollectionService) {}
 
   public ngOnInit(): void {
+    (<any>window).build5 = https(Build5.TEST);
     this.collectionService.getOne(environment.collection).pipe(untilDestroyed(this)).subscribe(this.collection$);
   }
 
