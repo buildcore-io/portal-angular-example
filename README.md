@@ -1,34 +1,16 @@
 # Build5 collection galery example
-Let's have some fun store. This is heavily in progress.
-
-See LIVE example: [here](https://build-5.github.io/portal-angular-example/) 
+Let's have some fun store. This template is in progress.
 
 ## Angular setup
 
-Let's first install the Angular CLI. It's a neat tool Angular provides that automates many development tasks. To install it, open a terminal and type the following command:
+Clone git
+`git clone https://github.com/build-5/portal-angular-example.git`
 
-`npm install -g @angular/cli`
+Install dependecies
+`npm install`
 
-Once installed, create a new project with the following command:
-`ng new soon-portal-angular`
-
-A prompt will appear asking you if you want to enable strict mode. Select yes. This will enable a few other settings that will help to catch bugs ahead of time.
-
-In your directory you now see your project repo. Type the following commands to go in it:
-```
-cd soon-portal-angular
-ng serve --open
-```
-ng serve will build the app, while the --open option will open up a browser to `http://localhost:4200/`. You should now see Angular generic template page.
-
-### Customizing the html template
-Now that the general project setup is done. Let's start customizing it within components.
-
-Afterwards, the browser should reload instantly, displaying only the new title.
-
-#### Customizing the stylesheet
-
-For help with our styling, we will use the angular material components. These components made by the material team are an implementation of [material design](https://material.io/). They will allow us to quickly create a fast, design tested e-commerce.
+Start the application
+`npm start`
 
 # 🤝 Contributing
 
