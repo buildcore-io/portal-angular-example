@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { Collection } from '@build-5/interfaces';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { Collection } from '@soonaverse/interfaces';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CollectionService } from './services/collection.service';
@@ -12,16 +12,11 @@ import { CollectionService } from './services/collection.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  public collection$: BehaviorSubject<Collection | undefined> = new BehaviorSubject<
-    Collection | undefined
-  >(undefined);
+  public collection$: BehaviorSubject<Collection | undefined> = new BehaviorSubject<Collection | undefined>(undefined);
   constructor(private collectionService: CollectionService) {}
 
   public ngOnInit(): void {
-    this.collectionService
-      .getOne(environment.collection)
-      .pipe(untilDestroyed(this))
-      .subscribe(this.collection$);
+    this.collectionService.getOne(environment.collection).pipe(untilDestroyed(this)).subscribe(this.collection$);
   }
 
   public showAuction(): boolean {

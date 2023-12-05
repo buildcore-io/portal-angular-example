@@ -1,25 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Nft, NftAvailable, NftRepository } from '@soonaverse/lib';
-import { from, Observable } from 'rxjs';
-import { BaseService } from './base.service';
-
+import { https } from '@build-5/client';
+import { Dataset, Nft, NftAvailable, Transaction } from '@build-5/interfaces';
+import { Observable, from } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { UserService } from './user.service';
 @Injectable({
   providedIn: 'root',
 })
-export class NftService extends BaseService<Nft, NftRepository> {
-  constructor() {
-    super(NftRepository);
-  }
+export class NftService {
+  private client = https(environment.build5Env).dataset(Dataset.NFT);
+  constructor(private user: UserService) {}
+  async order(nftId: string): Promise<Transaction> {
+    const d = await this.user.signWithMetamask({
+      collection: environment.collection,
+      nft: nftId,
+    });
 
+    return this.client.order(d);
+  }
   getByCollection(col: string): Observable<Nft[] | undefined> {
-    return from(this.repo.getByField('collection', col));
+    return from(this.client.getByField('collection', col));
   }
 
-  getByCollectionAvailableForSale(col: string): Observable<Nft[] | undefined> {
-    return from(this.repo.getByField(['collection', 'available'], [col, NftAvailable.SALE]));
+  getByCollectionAvailableForSaleLive(col: string): Observable<Nft[] | undefined> {
+    return from(this.client.getByFieldLive(['collection', 'available'], [col, NftAvailable.SALE]));
   }
 
-  getByCollectionAvailableForAuction(col: string): Observable<Nft[] | undefined> {
-    return from(this.repo.getByField(['collection', 'available'], [col, NftAvailable.AUCTION]));
+  getByCollectionAvailableForAuctionLive(col: string): Observable<Nft[] | undefined> {
+    return from(this.client.getByFieldLive(['collection', 'available'], [col, NftAvailable.AUCTION]));
   }
 }

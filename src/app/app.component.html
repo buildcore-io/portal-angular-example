@@ -1,7 +1,5 @@
 <header>
-  <div
-    class="py-6 px-6 text-center bg-gradient-to-tr from-red-300 to-yellow-200 flex justify-center items-center"
-  >
+  <div class="py-6 px-6 text-center bg-gradient-to-tr from-red-300 to-yellow-200 flex justify-center items-center">
     <h1 class="mb-6 text-5xl font-medium">
       {{ (collection$ | async)?.name }}
       <span
@@ -9,8 +7,7 @@
       >
         <span *ngIf="!showAuction()">On Sale</span>
         <span *ngIf="showAuction()">On Auction</span>
-      </span
-      >
+      </span>
     </h1>
   </div>
 </header>

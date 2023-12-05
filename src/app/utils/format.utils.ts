@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Network } from '@soonaverse/interfaces';
+import { Network } from '@build-5/interfaces';
 
 export const NETWORK_DETAIL = {
   [Network.IOTA]: {
@@ -22,13 +22,7 @@ export const NETWORK_DETAIL = {
 
 @Pipe({ name: 'unitFormat' })
 export class UnitFormatPipe implements PipeTransform {
-  transform(
-    value: number | null | undefined,
-    network?: Network | null,
-    removeZeroes = false,
-    showUnit = true,
-    defDecimals = 2,
-  ): string {
+  transform(value: number | null | undefined, network?: Network | null, removeZeroes = false, showUnit = true, defDecimals = 2): string {
     if (!network) {
       network = Network.IOTA;
     }
@@ -40,8 +34,7 @@ export class UnitFormatPipe implements PipeTransform {
     value = value / NETWORK_DETAIL[network].divideBy;
 
     const parts = (removeZeroes ? value : value.toFixed(defDecimals)).toString().split('.');
-    const formattedValue =
-      parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',') + (parts.length === 2 ? '.' + parts[1] : '');
+    const formattedValue = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',') + (parts.length === 2 ? '.' + parts[1] : '');
     return formattedValue + (showUnit ? ` ${NETWORK_DETAIL[network].label}` : '');
   }
 }

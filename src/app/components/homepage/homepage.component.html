@@ -1,1 +1,15 @@
 <app-products></app-products>
+
+<!-- Transaction Log -->
+<div id="chat-container" class="fixed bottom-2 right-4" style="width: 32rem">
+  <div class="bg-white shadow-md rounded-lg max-w-lg w-full">
+    <div class="p-4 border-b bg-blue-500 text-white rounded-t-lg flex justify-between items-center">
+      <p class="text-lg font-semibold">Application Log</p>
+    </div>
+    <div id="chatbox" class="p-4 h-96 overflow-y-auto">
+      <div class="mb-2 text-xs font-serif" *ngFor="let p of log.events$ | async">
+        <p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">{{ p }}</p>
+      </div>
+    </div>
+  </div>
+</div>
