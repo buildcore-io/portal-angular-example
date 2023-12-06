@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { https } from '@build-5/client';
 import { Build5 } from '@build-5/client/lib/https';
-import { Collection } from '@build-5/interfaces';
+import { Collection, Dataset, NftAvailable, Subset } from '@build-5/interfaces';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CollectionService } from './services/collection.service';
+import { UserService } from './services/user.service';
 
 @UntilDestroy()
 @Component({
@@ -15,11 +16,22 @@ import { CollectionService } from './services/collection.service';
 })
 export class AppComponent {
   public collection$: BehaviorSubject<Collection | undefined> = new BehaviorSubject<Collection | undefined>(undefined);
-  constructor(private collectionService: CollectionService) {}
+  constructor(private collectionService: CollectionService, private user: UserService) {}
 
   public ngOnInit(): void {
-    (<any>window).build5 = https(Build5.TEST);
+    this.enableConsoleDebuggingForBuild5Lib();
     this.collectionService.getOne(environment.collection).pipe(untilDestroyed(this)).subscribe(this.collection$);
+  }
+
+  public enableConsoleDebuggingForBuild5Lib():void {
+    // Make few things public for testing and debugging
+    (<any>window).build5 = https(Build5.TEST);
+    (<any>window).Dataset = Dataset;
+    (<any>window).Subset = Subset;
+    (<any>window).NftAvailable = NftAvailable;
+    (<any>window).signWithMetamask = (v: any, projectApiKey = environment.build5Token) => {
+      return this.user.signWithMetamask(v, projectApiKey);
+    };
   }
 
   public showAuction(): boolean {

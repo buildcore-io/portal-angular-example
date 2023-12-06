@@ -16,7 +16,7 @@ export class UserService {
     // none.
   }
 
-  public async signWithMetamask(params: any = {}): Promise<any | undefined | false> {
+  public async signWithMetamask(params: any = {}, projectApiKey = environment.build5Token): Promise<any | undefined | false> {
     this.log.add('Metamask signing initialized!');
 
     const provider: any = await detectEthereumProvider();
@@ -57,7 +57,7 @@ export class UserService {
         return {
           address: provider.selectedAddress,
           signature: signature,
-          projectApiKey: environment.build5Token,
+          projectApiKey: projectApiKey,
           body: params,
         };
       } catch (e) {
