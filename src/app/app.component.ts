@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { https } from '@build-5/client';
 import { Build5 } from '@build-5/client/lib/https';
-import { Collection, Dataset, NftAvailable, Subset } from '@build-5/interfaces';
+import { Collection, Dataset, Network, NftAvailable, Subset, TokenTradeOrderStatus, TokenTradeOrderType } from '@build-5/interfaces';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -29,6 +29,9 @@ export class AppComponent {
     (<any>window).Dataset = Dataset;
     (<any>window).Subset = Subset;
     (<any>window).NftAvailable = NftAvailable;
+    (<any>window).Network = Network;
+    (<any>window).TokenTradeOrderType = TokenTradeOrderType;
+    (<any>window).TokenTradeOrderStatus = TokenTradeOrderStatus;
     (<any>window).signWithMetamask = (v: any, projectApiKey = environment.build5Token) => {
       return this.user.signWithMetamask(v, projectApiKey);
     };
