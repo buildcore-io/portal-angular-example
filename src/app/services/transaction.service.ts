@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class TransactionService {
-  private client = https(environment.build5Env).dataset(Dataset.TRANSACTION);
+  private client = https(environment.build5Env).project(environment.build5Token).dataset(Dataset.TRANSACTION);
   getOneLive(id: string): Observable<Transaction> {
     return <Observable<Transaction>>this.client.id(id).getLive();
   }

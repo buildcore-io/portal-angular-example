@@ -22,10 +22,14 @@ export class ProductsComponent implements OnInit {
   public ngOnInit(): void {
     // TODO Add pagination and virtual scroll
     this.log.add('Loading available NFTs for sale within collection: ' + environment.collection.slice(0, 9) + '...');
-    if (environment.mode === 'auction') {
-      this.nftService.getByCollectionAvailableForAuctionLive(environment.collection).pipe(untilDestroyed(this)).subscribe(this.products$);
-    } else {
-      this.nftService.getByCollectionAvailableForSaleLive(environment.collection).pipe(untilDestroyed(this)).subscribe(this.products$);
+    try {
+      if (environment.mode === 'auction') {
+        this.nftService.getByCollectionAvailableForAuctionLive(environment.collection).pipe(untilDestroyed(this)).subscribe(this.products$);
+      } else {
+        this.nftService.getByCollectionAvailableForSaleLive(environment.collection).pipe(untilDestroyed(this)).subscribe(this.products$);
+      }
+    } catch(_e) {
+      // ignore errors
     }
   }
 }

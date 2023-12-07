@@ -8,7 +8,7 @@ import { UserService } from './user.service';
   providedIn: 'root',
 })
 export class NftService {
-  private client = https(environment.build5Env).dataset(Dataset.NFT);
+  private client = https(environment.build5Env).project(environment.build5Token).dataset(Dataset.NFT);
   constructor(private user: UserService) {}
   async order(nftId: string): Promise<Transaction> {
     const d = await this.user.signWithMetamask({

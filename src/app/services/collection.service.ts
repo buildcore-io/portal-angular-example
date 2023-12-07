@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class CollectionService {
-  private client = https(environment.build5Env).dataset(Dataset.COLLECTION);
+  private client = https(environment.build5Env).project(environment.build5Token).dataset(Dataset.COLLECTION);
   getOne(id: string): Observable<Collection | undefined> {
     return from(this.client.id(id).get());
   }

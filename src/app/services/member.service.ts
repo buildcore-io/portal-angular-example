@@ -8,13 +8,13 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class MemberService {
-  private client = https(environment.build5Env).dataset(Dataset.MEMBER);
+  private client = https(environment.build5Env).project(environment.build5Token).dataset(Dataset.MEMBER);
   getOne(id: string): Observable<Member | undefined> {
     return from(this.client.id(id).get());
   }
 
   createIfNotExists(address: string): Promise<Member | undefined> {
-    return this.client.create({
+    return https(environment.build5Env).createMember({
       address,
       projectApiKey: environment.build5Token,
       body: {
