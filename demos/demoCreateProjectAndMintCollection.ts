@@ -54,13 +54,13 @@ const collection = await build5.project(projectAPIKey).dataset(Dataset.COLLECTIO
     availableFrom: availableFrom,
     access: 0,
     category: 'COLLECTIBLE',
-    bannerUrl: 'https://images-wen.soonaverse.com/0x551fd2c7c7bf356bac194587dab2fcd46420054b/rrvhjuksm4/fe1105c6-2a66-4496-96d1-ed1625293014_jpeg_1600X1600.webp',
-    placeholderUrl: 'https://images-wen.soonaverse.com/0x551fd2c7c7bf356bac194587dab2fcd46420054b/rrvhjuksm4/fe1105c6-2a66-4496-96d1-ed1625293014_jpeg_1600X1600.webp',
+    bannerUrl: 'https://images-wen.soonaverse.com/0x551fd2c7c7bf356bac194587dab2fcd46420054b/rrvhjuksm4/fe1105c6-2a66-4496-96d1-ed1625293014.jpeg',
+    placeholderUrl: 'https://images-wen.soonaverse.com/0x551fd2c7c7bf356bac194587dab2fcd46420054b/rrvhjuksm4/fe1105c6-2a66-4496-96d1-ed1625293014.jpeg',
     price: 10000000,
     space: space.uid,
     royaltiesFee: 0,
     royaltiesSpace: space.uid,
-    type: 1
+    type: 0
 }, projectAPIKey));
 console.log('Collection: ' + collection.uid, collection);
 
@@ -73,7 +73,7 @@ for(let i = 0; i < 25; i++){
         availableFrom: availableFrom,
         collection: collection.uid,
         description: nftName + ' description',
-        media: 'https://images-wen.soonaverse.com/0x551fd2c7c7bf356bac194587dab2fcd46420054b/rrvhjuksm4/fe1105c6-2a66-4496-96d1-ed1625293014_jpeg_1600X1600.webp',
+        media: 'https://images-wen.soonaverse.com/0x551fd2c7c7bf356bac194587dab2fcd46420054b/rrvhjuksm4/fe1105c6-2a66-4496-96d1-ed1625293014.jpeg',
         name: nftName,
         price: 20000000
     });
@@ -96,11 +96,6 @@ build5.project(projectAPIKey).dataset(Dataset.COLLECTION).mint(await signWithMet
     network: Network.RMS,
     unsoldMintingOptions: 'keep_price'
 }, projectAPIKey)).then((t) => console.log('Sent: ', t.payload.amount, ' to ', t.payload.targetAddress, ', full order object: ', t));
-
-
-// Done here.
-console.log('%cComing up DEMO: mint collection, trade and stake! Stay tuned!\n\n', 'color:green;font-size:14px;font-weight: bold');
-console.log('%cAccess code used for this demo here: https://github.com/build-5/portal-angular-example/blob/master/demos/demoCreateProjectAndTradeToken.ts', 'color:green;font-size:14px;font-weight: bold');
 
 // --------
 // DEMO ENDS HERE
