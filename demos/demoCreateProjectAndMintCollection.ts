@@ -7,7 +7,7 @@ const signWithMetamask = async (s: any, projectAPIKey: string = '123') => {
 };
 
 // Just so we remove warning because of async
-async function demoCreateProjectAndTradeToken() {
+async function demoCreateProjectAndMintCollection() {
 
 // --------
 // DEMO STARTS HERE
