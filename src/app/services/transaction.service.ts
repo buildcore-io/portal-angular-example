@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { https } from '@build-5/client';
+import { https } from '@build-5/client/lib/https';
 import { Dataset, Transaction } from '@build-5/interfaces';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
