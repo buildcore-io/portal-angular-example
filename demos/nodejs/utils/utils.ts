@@ -1,5 +1,5 @@
 import { https } from '@build-5/client';
-import { Build5 } from '@build-5/client/lib/https';
+import { Build5 } from '@build-5/client/https';
 import { Dataset, Member } from '@build-5/interfaces';
 import { CoinType, SecretManager, utf8ToHex } from '@iota/sdk';
 import { mnemonicToSeedSync } from 'bip39';

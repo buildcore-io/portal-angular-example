@@ -1,4 +1,4 @@
-import { Build5 } from '@build-5/client/lib/https';
+import { Build5 } from '@build-5/client/https';
 
 export const environment = {
   production: false,

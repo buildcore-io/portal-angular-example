@@ -1,5 +1,5 @@
 import { https } from '@build-5/client';
-import { API_KEY, Build5 } from '@build-5/client/lib/https';
+import { API_KEY, Build5 } from '@build-5/client/https';
 import { Dataset, Network, Space } from '@build-5/interfaces';
 import { environment } from 'src/environments/environment';
 import { address } from './utils/secret';

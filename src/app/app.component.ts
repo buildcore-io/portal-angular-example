@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Build5, https } from '@build-5/client/lib/https';
+import { Build5, https } from '@build-5/client/https';
 import { Collection, Dataset, Network, NftAvailable, Subset, TokenTradeOrderStatus, TokenTradeOrderType } from '@build-5/interfaces';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject } from 'rxjs';
