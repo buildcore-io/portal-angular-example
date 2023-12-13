@@ -1,4 +1,5 @@
-import { Build5, https } from "@build-5/client";
+import { https } from "@build-5/client";
+import { Build5 } from "@build-5/client/https";
 import { Dataset, Network, Subset, TokenTradeOrderStatus, TokenTradeOrderType } from "@build-5/interfaces";
 
 const build5 = https(Build5.TEST);

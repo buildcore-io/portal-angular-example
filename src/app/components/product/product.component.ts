@@ -87,6 +87,19 @@ export class ProductComponent {
     });
   }
 
+  public async buyOtr(id: string): Promise<void> {
+    // Waiting for fix.
+    // const request = await otr(Build5OtrAddress.TEST).dataset(Dataset.TOKEN).buy({
+    //   nftId: id
+    // });
+    // const url = request.getFireflyDeepLink().replace('firefly', 'firefly-alpha');
+    // const trackingTag = request.getTag(url);
+    // this.log.add('Tracking of progress:');
+    // https(Build5.TEST).project(environment.build5Token).trackByTag(trackingTag).subscribe((v) => {
+    //   this.log.add(JSON.stringify(v));
+    // })
+  }
+
   public async signAndBuy(id: string): Promise<void> {
     try {
       const tran = await this.nftService.order(id);
