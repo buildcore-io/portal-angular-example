@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { otr } from '@build-5/client';
 import { Build5, https } from '@build-5/client/https';
+import { Build5OtrAddress } from '@build-5/client/otr';
 import { Collection, Dataset, Network, NftAvailable, Subset, TokenTradeOrderStatus, TokenTradeOrderType } from '@build-5/interfaces';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject } from 'rxjs';
@@ -25,6 +27,7 @@ export class AppComponent {
   public enableConsoleDebuggingForBuild5Lib():void {
     // Make few things public for testing and debugging
     (<any>window).build5 = https(Build5.TEST);
+    (<any>window).build5Otr = otr(Build5OtrAddress.TEST);
     (<any>window).Dataset = Dataset;
     (<any>window).Subset = Subset;
     (<any>window).NftAvailable = NftAvailable;
